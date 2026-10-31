@@ -1,0 +1,8 @@
+Django>=5.2,<7
+Pillow
+whitenoise
+django-axes
+gunicorn
+psycopg[binary]
+django-cloudinary-storage
+cloudinary

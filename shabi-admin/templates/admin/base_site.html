@@ -1,0 +1,34 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<style>
+:root, html[data-theme="light"], html[data-theme="dark"], html[data-theme="auto"]{
+  color-scheme:light;
+  --primary:#8a6a3c; --secondary:#b8925a; --accent:#e3c793; --primary-fg:#fff;
+  --body-fg:#2b2420; --body-bg:#faf6f0; --body-quiet-color:#7a6d64; --body-medium-color:#5b4f47; --body-loud-color:#2b2420;
+  --header-color:#f6e9d0; --header-branding-color:#fff; --header-bg:#8a6a3c; --header-link-color:#fff;
+  --breadcrumbs-fg:#f6e9d0; --breadcrumbs-link-fg:#fff; --breadcrumbs-bg:#b8925a;
+  --link-fg:#8a6a3c; --link-hover-color:#5e4524; --link-selected-fg:#5e4524;
+  --hairline-color:#ecdcc4; --border-color:#e3c793;
+  --darkened-bg:#f6ece0; --selected-bg:#f3e4cc; --selected-row:#fbf0dd;
+  --button-fg:#fff; --button-bg:#8a6a3c; --button-hover-bg:#6f5530;
+  --default-button-bg:#b8925a; --default-button-hover-bg:#8a6a3c;
+  --object-tools-fg:#fff; --object-tools-bg:#b8925a; --object-tools-hover-bg:#8a6a3c;
+  --message-success-bg:#e8f3ea; --message-warning-bg:#fff4e5; --message-error-bg:#fbe9e9;
+}
+body{background:#faf6f0}
+.theme-toggle{display:none}
+#header{box-shadow:0 2px 12px rgba(138,106,60,.25)}
+#site-name a{letter-spacing:.06em}
+.module,#changelist .paginator,.login #content-main{border-radius:12px}
+.module h2,.module caption{background:#b8925a;color:#fff}
+#login-form .submit-row input,.button,input[type=submit]{border-radius:999px}
+.login #container{border:1px solid #e3c793;border-radius:18px;box-shadow:0 20px 50px -20px rgba(138,106,60,.45)}
+</style>{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

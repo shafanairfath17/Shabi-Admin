@@ -1,0 +1,12 @@
+{% extends "admin/index.html" %}
+{% block extrastyle %}{{ block.super }}<style>
+:root{--primary:#8a6a3c;--secondary:#b8925a;--accent:#e3c793;--header-bg:#8a6a3c;--header-color:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:0 0 24px}
+.card{background:linear-gradient(160deg,#fff,#f6e9e4);border:1px solid #e3c793;border-radius:16px;padding:16px;text-align:center}
+.card b{display:block;font-size:2rem;color:#8a6a3c}.card span{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+</style>{% endblock %}
+{% block content %}
+<div class="cards">{% for label, n in stats %}<div class="card"><b>{{ n }}</b><span>{{ label }}</span></div>{% endfor %}</div>
+{% if alerts %}<div style="background:#fff4e5;border:1px solid #e3a857;border-radius:12px;padding:12px 16px;margin-bottom:20px"><b>Restock needed</b><ul>{% for x in alerts %}<li><a href="{% url 'admin:shop_product_change' x.pk %}">{{ x.name }}</a>: {{ x.stock_label }}</li>{% endfor %}</ul></div>{% endif %}
+<h2>Recently updated</h2><ul>{% for x in recent %}<li><a href="{% url 'admin:shop_product_change' x.pk %}">{{ x.name }}</a> &middot; {{ x.updated|date:"d M, H:i" }}</li>{% empty %}<li>No products yet.</li>{% endfor %}</ul>
+{{ block.super }}{% endblock %}
