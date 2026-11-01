@@ -8,7 +8,7 @@ if not SECRET_KEY: raise RuntimeError("Set DJANGO_SECRET_KEY")
 ALLOWED_HOSTS = [h.strip() for h in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,testserver,.vercel.app").split(",")]
 CSRF_TRUSTED_ORIGINS = ["https://*" + h if h.startswith(".") else "https://" + h for h in ALLOWED_HOSTS if h not in ("localhost", "127.0.0.1", "testserver")]
 ADMIN_URL = os.environ.get("ADMIN_URL", "manage-shabi/")
-INSTALLED_APPS = ["cloudinary_storage","django.contrib.admin","django.contrib.auth","django.contrib.contenttypes","django.contrib.sessions","django.contrib.messages","django.contrib.staticfiles","cloudinary","axes","shop"]
+INSTALLED_APPS = ["django.contrib.admin","django.contrib.auth","django.contrib.contenttypes","django.contrib.sessions","django.contrib.messages","django.contrib.staticfiles","axes","shop"]
 MIDDLEWARE = ["django.middleware.security.SecurityMiddleware","whitenoise.middleware.WhiteNoiseMiddleware","django.contrib.sessions.middleware.SessionMiddleware","django.middleware.common.CommonMiddleware","django.middleware.csrf.CsrfViewMiddleware","django.contrib.auth.middleware.AuthenticationMiddleware","django.contrib.messages.middleware.MessageMiddleware","django.middleware.clickjacking.XFrameOptionsMiddleware","shop.middleware.csp","axes.middleware.AxesMiddleware"]
 ROOT_URLCONF = "config.urls"
 TEMPLATES = [{"BACKEND":"django.template.backends.django.DjangoTemplates","DIRS":[BASE_DIR/"templates"],"APP_DIRS":True,"OPTIONS":{"context_processors":["django.template.context_processors.request","django.contrib.auth.context_processors.auth","django.contrib.messages.context_processors.messages"]}}]
