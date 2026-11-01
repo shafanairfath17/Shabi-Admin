@@ -2,7 +2,7 @@
 .crumb a{color:var(--gold3);text-decoration:none;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
 .crumb a:hover{text-decoration:underline}
 .shop .head{margin:26px auto 40px;text-align:center;max-width:none}.shop .head h2{text-align:center}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px}
 .state{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
 .pcard{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;animation:fade .7s both;transition:transform .5s,box-shadow .5s}
 .pcard:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
