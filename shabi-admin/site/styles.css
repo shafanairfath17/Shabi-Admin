@@ -210,3 +210,7 @@ a.cat{text-decoration:none;color:inherit;cursor:pointer}
 a.cat:focus-visible,.btn:focus-visible,.pcard button:focus-visible,.pcard a:focus-visible{outline:2px solid var(--gold3);outline-offset:3px}
 
 .cats{max-width:960px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+
+/* S fix: extra room so the top curl of the "S" is not clipped */
+.logo{padding-top:.35em;padding-bottom:.2em;margin-top:-.35em;margin-bottom:-.2em}
+.wordmark .logo{padding:.35em .2em .2em;margin-top:-.35em;margin-bottom:-.2em}
